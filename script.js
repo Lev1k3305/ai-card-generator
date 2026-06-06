@@ -218,13 +218,24 @@ const neuralCanvas = document.getElementById('neuralCanvas');
       cardCtx.fillText(`neural_net.train(on='${name}_birthday', hobbies='${hobbies}')`, 300, 320);
 
       // Apply text animation class to canvas
-      document.getElementById('cardCanvas').className = textAnim;
-      
+      const canvasElement = document.getElementById('cardCanvas');
+      canvasElement.className = textAnim;
+
       // Draw mini neural network on card
       nodes.forEach(node => node.draw(cardCtx));
       connectNodes(cardCtx, cardCanvas);
-      
-      document.getElementById('cardCanvas').style.display = 'block';
+
+      canvasElement.style.display = 'block';
+      canvasElement.setAttribute('aria-label', `Персональная открытка для ${name} с пожеланием: ${wish}`);
+
+      // Update status message for screen readers
+      const statusMessage = document.getElementById('statusMessage');
+      if (statusMessage) {
+        statusMessage.textContent = `Открытка для ${name} успешно создана!`;
+      }
+
+      // Smooth scroll to the card
+      canvasElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     function downloadCard() {

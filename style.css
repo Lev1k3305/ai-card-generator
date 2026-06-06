@@ -24,14 +24,33 @@
     }
     .form-group {
       margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    label {
+      font-size: 0.8rem;
+      margin-bottom: 5px;
+      display: block;
+      width: 80%;
+      text-align: left;
     }
     input, select {
       padding: 10px;
       font-size: 1rem;
       border-radius: 5px;
-      border: none;
+      border: 2px solid transparent;
       width: 80%;
       font-family: 'Arial', sans-serif;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    input:hover, select:hover {
+      border-color: #00d4ff;
+    }
+    input:focus, select:focus, .btn:focus {
+      outline: none;
+      border-color: #ffd700;
+      box-shadow: 0 0 10px #ffd700;
     }
     .code-block {
       background: rgba(0, 0, 0, 0.7);
@@ -57,6 +76,21 @@
     .btn:hover {
       background: #00b7eb;
       transform: scale(1.1) translate(2px, 2px);
+    }
+    .btn:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 3px solid #ffd700;
+      outline-offset: 2px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
     }
     canvas {
       position: absolute;

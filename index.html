@@ -12,15 +12,19 @@
   <div class="container">
     <h1>Создай ИИ-Открытку!</h1>
     <div class="form-group">
+      <label for="recipientName">Имя получателя:</label>
       <input type="text" id="recipientName" placeholder="Имя получателя" maxlength="20">
     </div>
     <div class="form-group">
+      <label for="customWish">Ваше пожелание:</label>
       <input type="text" id="customWish" placeholder="Ваше пожелание" maxlength="100">
     </div>
     <div class="form-group">
-      <input type="text" id="hobbies" placeholder="Хобби/интересы (например, программирование, игры)" maxlength="50">
+      <label for="hobbies">Хобби/интересы:</label>
+      <input type="text" id="hobbies" placeholder="Напр. программирование" maxlength="50">
     </div>
     <div class="form-group">
+      <label for="themeSelect">Тема оформления:</label>
       <select id="themeSelect">
         <option value="blue-purple">Сине-Фиолетовый Градиент</option>
         <option value="red-orange">Красно-Оранжевый Градиент</option>
@@ -32,6 +36,7 @@
       </select>
     </div>
     <div class="form-group">
+      <label for="textAnimation">Анимация текста:</label>
       <select id="textAnimation">
         <option value="glitch">Glitch (Пиксельный сбой)</option>
         <option value="typewriter">Typewriter (Печатная машинка)</option>
@@ -39,9 +44,10 @@
         <option value="pixel-pulse">Pixel Pulse (Пиксельный пульс)</option>
       </select>
     </div>
-    <button class="btn" onclick="generateCard()">Создать Открытку!</button>
-    <button class="btn" onclick="downloadCard()">Скачать Открытку</button>
-    <canvas id="cardCanvas" width="600" height="400"></canvas>
+    <button class="btn" onclick="generateCard()" aria-label="Сгенерировать открытку">Создать Открытку!</button>
+    <button class="btn" onclick="downloadCard()" aria-label="Скачать открытку в формате PNG">Скачать Открытку</button>
+    <div id="statusMessage" class="sr-only" aria-live="polite"></div>
+    <canvas id="cardCanvas" width="600" height="400" aria-label="Предварительный просмотр открытки" role="img"></canvas>
     </div>
 
     <script src="script.js"></script>
