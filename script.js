@@ -225,6 +225,7 @@ const neuralCanvas = document.getElementById('neuralCanvas');
       connectNodes(cardCtx, cardCanvas);
       
       document.getElementById('cardCanvas').style.display = 'block';
+      document.getElementById('statusAnnouncer').textContent = 'Открытка создана!';
     }
 
     function downloadCard() {
