@@ -139,6 +139,11 @@ const neuralCanvas = document.getElementById('neuralCanvas');
 
     animate();
 
+    document.getElementById('customWish').addEventListener('input', (e) => {
+      const length = e.target.value.length;
+      document.getElementById('wishCharCounter').textContent = `${length} / 100`;
+    });
+
     window.addEventListener('resize', () => {
       neuralCanvas.width = window.innerWidth;
       neuralCanvas.height = window.innerHeight;
@@ -230,6 +235,13 @@ const neuralCanvas = document.getElementById('neuralCanvas');
 
       downloadBtn.disabled = false;
       downloadBtn.title = 'Скачать вашу открытку';
+
+      const generateBtn = document.getElementById('generateBtn');
+      if (!generateBtn.textContent.includes('Создано')) {
+        const originalGenText = generateBtn.textContent;
+        generateBtn.textContent = 'Создано! 🎨';
+        setTimeout(() => { generateBtn.textContent = originalGenText; }, 2000);
+      }
     }
 
     function downloadCard() {
