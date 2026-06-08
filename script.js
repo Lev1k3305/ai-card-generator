@@ -5,6 +5,7 @@ const neuralCanvas = document.getElementById('neuralCanvas');
 
     const cardCanvas = document.getElementById('cardCanvas');
     const cardCtx = cardCanvas.getContext('2d');
+    const downloadBtn = document.getElementById('downloadBtn');
 
     class Node {
       constructor(x, y) {
@@ -226,11 +227,22 @@ const neuralCanvas = document.getElementById('neuralCanvas');
       
       document.getElementById('cardCanvas').style.display = 'block';
       document.getElementById('statusAnnouncer').textContent = 'Открытка создана!';
+
+      downloadBtn.disabled = false;
+      downloadBtn.title = 'Скачать вашу открытку';
     }
 
     function downloadCard() {
+      const originalText = downloadBtn.textContent;
+
       const link = document.createElement('a');
       link.download = 'ai-birthday-card.png';
       link.href = cardCanvas.toDataURL('image/png');
       link.click();
+
+      // Feedback to the user
+      downloadBtn.textContent = 'Скачано! ✨';
+      setTimeout(() => {
+        downloadBtn.textContent = originalText;
+      }, 2000);
     }
