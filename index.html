@@ -19,6 +19,8 @@
     <div class="form-group">
       <label for="customWish" class="sr-only">Ваше пожелание</label>
       <input type="text" id="customWish" placeholder="Ваше пожелание" maxlength="100">
+      <br>
+      <small id="wishCharCounter" aria-live="polite">0 / 100</small>
     </div>
     <div class="form-group">
       <label for="hobbies" class="sr-only">Хобби и интересы</label>
@@ -45,7 +47,7 @@
         <option value="pixel-pulse">Pixel Pulse (Пиксельный пульс)</option>
       </select>
     </div>
-    <button class="btn" onclick="generateCard()">Создать Открытку!</button>
+    <button class="btn" id="generateBtn" onclick="generateCard()">Создать Открытку!</button>
     <button id="downloadBtn" class="btn" onclick="downloadCard()" disabled title="Сначала создайте открытку">Скачать Открытку</button>
     <canvas id="cardCanvas" width="600" height="400" role="img" aria-label="Превью вашей открытки"></canvas>
     </div>
