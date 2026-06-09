@@ -224,17 +224,22 @@ const neuralCanvas = document.getElementById('neuralCanvas');
       cardCtx.fillText(`neural_net.train(on='${name}_birthday', hobbies='${hobbies}')`, 300, 320);
 
       // Apply text animation class to canvas
-      document.getElementById('cardCanvas').className = textAnim;
+      const cardCanvasElement = document.getElementById('cardCanvas');
+      cardCanvasElement.className = `${textAnim} pop-in`;
       
       // Draw mini neural network on card
       nodes.forEach(node => node.draw(cardCtx));
-      connectNodes(cardCtx, cardCanvas);
+      connectNodes(cardCtx, cardCanvasElement);
       
-      document.getElementById('cardCanvas').style.display = 'block';
+      cardCanvasElement.style.display = 'block';
       document.getElementById('statusAnnouncer').textContent = 'Открытка создана!';
 
       downloadBtn.disabled = false;
       downloadBtn.title = 'Скачать вашу открытку';
+
+      // Smooth scroll to card and shift focus for better UX
+      cardCanvasElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      downloadBtn.focus();
 
       const generateBtn = document.getElementById('generateBtn');
       if (!generateBtn.textContent.includes('Создано')) {
