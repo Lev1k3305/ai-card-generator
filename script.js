@@ -139,9 +139,21 @@ const neuralCanvas = document.getElementById('neuralCanvas');
 
     animate();
 
-    document.getElementById('customWish').addEventListener('input', (e) => {
-      const length = e.target.value.length;
-      document.getElementById('wishCharCounter').textContent = `${length} / 100`;
+    const textInputs = [
+      { id: 'recipientName', counterId: 'nameCharCounter' },
+      { id: 'customWish', counterId: 'wishCharCounter' },
+      { id: 'hobbies', counterId: 'hobbiesCharCounter' }
+    ];
+
+    textInputs.forEach(inputInfo => {
+      const input = document.getElementById(inputInfo.id);
+      const counter = document.getElementById(inputInfo.counterId);
+      if (input && counter) {
+        const max = input.getAttribute('maxlength');
+        input.addEventListener('input', () => {
+          counter.textContent = `${input.value.length} / ${max}`;
+        });
+      }
     });
 
     window.addEventListener('resize', () => {
@@ -232,6 +244,7 @@ const neuralCanvas = document.getElementById('neuralCanvas');
       connectNodes(cardCtx, cardCanvasElement);
       
       cardCanvasElement.style.display = 'block';
+      cardCanvasElement.setAttribute('aria-label', `Открытка для ${name}: ${wish}`);
       document.getElementById('statusAnnouncer').textContent = 'Открытка создана!';
 
       downloadBtn.disabled = false;
