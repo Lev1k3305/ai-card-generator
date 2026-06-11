@@ -17,3 +17,7 @@
 ## 2026-06-09 - Dynamic Content Focus & Visibility
 **Learning:** When generating dynamic content (like a canvas) in a long-scroll interface, the user may not see the result or know what to do next. Combining smooth scrolling with programmatic focus shifts to the next action button (e.g., 'Download') provides a seamless transition from creation to consumption.
 **Action:** Always use scrollIntoView with smooth behavior and focus() on the primary next-step element after successful content generation.
+
+## 2026-06-10 - Discoverability of Keyword-Triggered Features
+**Learning:** Using `<datalist>` for input fields that trigger specific "hidden" visual features (like specialized pixel art or animations) significantly improves discoverability and user delight. It transitions the interaction from "Recall" (requiring the user to remember or guess exact strings) to "Recognition" (providing visible suggestions).
+**Action:** For any application that uses keyword matching for unique UI states or logic, provide a `<datalist>` or similar suggestion mechanism to expose these features to the user.
