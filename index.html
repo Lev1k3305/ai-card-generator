@@ -26,7 +26,14 @@
     </div>
     <div class="form-group">
       <label for="hobbies" class="sr-only">Хобби и интересы</label>
-      <input type="text" id="hobbies" placeholder="Хобби/интересы (например, программирование, игры)" maxlength="50" aria-describedby="hobbiesCharCounter">
+      <input type="text" id="hobbies" list="hobbySuggestions" placeholder="Хобби/интересы (например, программирование, игры)" maxlength="50" aria-describedby="hobbiesCharCounter">
+      <datalist id="hobbySuggestions">
+        <option value="программирование">
+        <option value="игры">
+        <option value="музыка">
+        <option value="спорт">
+        <option value="рисование">
+      </datalist>
       <br>
       <small id="hobbiesCharCounter" aria-live="polite">0 / 50</small>
     </div>
