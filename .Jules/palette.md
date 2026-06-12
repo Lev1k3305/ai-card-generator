@@ -21,3 +21,7 @@
 ## 2026-06-10 - Discoverability of Keyword-Triggered Features
 **Learning:** Using `<datalist>` for input fields that trigger specific "hidden" visual features (like specialized pixel art or animations) significantly improves discoverability and user delight. It transitions the interaction from "Recall" (requiring the user to remember or guess exact strings) to "Recognition" (providing visible suggestions).
 **Action:** For any application that uses keyword matching for unique UI states or logic, provide a `<datalist>` or similar suggestion mechanism to expose these features to the user.
+
+## 2026-06-11 - Native Form Submission for Keyboard Accessibility
+**Learning:** For interactive applications with multiple input fields, wrapping the inputs and primary action button in a semantic <form> element is the most robust way to enable "Enter to submit" behavior. This leverages native browser functionality, improving keyboard accessibility and meeting user intuition without writing custom keydown listeners.
+**Action:** Always wrap input-heavy interactive sections in a <form> and set the primary action button to type="submit" to ensure seamless keyboard interactions.

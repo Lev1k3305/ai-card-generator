@@ -12,6 +12,7 @@
   <div class="container">
     <div id="statusAnnouncer" class="sr-only" aria-live="polite"></div>
     <h1>Создай ИИ-Открытку!</h1>
+    <form aria-label="Настройки открытки" onsubmit="generateCard(); return false;">
     <div class="form-group">
       <label for="recipientName" class="sr-only">Имя получателя</label>
       <input type="text" id="recipientName" placeholder="Имя получателя" maxlength="20" aria-describedby="nameCharCounter">
@@ -58,8 +59,9 @@
         <option value="pixel-pulse">Pixel Pulse (Пиксельный пульс)</option>
       </select>
     </div>
-    <button class="btn" id="generateBtn" onclick="generateCard()">Создать Открытку!</button>
-    <button id="downloadBtn" class="btn" onclick="downloadCard()" disabled title="Сначала создайте открытку">Скачать Открытку</button>
+    <button class="btn" id="generateBtn" type="submit">Создать Открытку!</button>
+    <button id="downloadBtn" class="btn" type="button" onclick="downloadCard()" disabled title="Сначала создайте открытку">Скачать Открытку</button>
+    </form>
     <canvas id="cardCanvas" width="600" height="400" role="img" aria-label="Превью вашей открытки"></canvas>
     </div>
 
