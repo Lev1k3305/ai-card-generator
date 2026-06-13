@@ -25,3 +25,7 @@
 ## 2026-06-11 - Native Form Submission for Keyboard Accessibility
 **Learning:** For interactive applications with multiple input fields, wrapping the inputs and primary action button in a semantic <form> element is the most robust way to enable "Enter to submit" behavior. This leverages native browser functionality, improving keyboard accessibility and meeting user intuition without writing custom keydown listeners.
 **Action:** Always wrap input-heavy interactive sections in a <form> and set the primary action button to type="submit" to ensure seamless keyboard interactions.
+
+## 2026-06-12 - Immersive Live Theme Previews
+**Learning:** Centralizing aesthetic constants (like theme color pairs) into a shared JavaScript object enables real-time synchronization between the global page background and local component states (like canvas generation). This "Live Preview" pattern reduces cognitive load by showing users the environment of their content before they commit to "generating" it.
+**Action:** When a component has multiple aesthetic states, use shared constants and event listeners to update the surrounding environment, creating a more immersive and responsive UI.
