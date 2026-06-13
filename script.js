@@ -7,6 +7,21 @@ const neuralCanvas = document.getElementById('neuralCanvas');
     const cardCtx = cardCanvas.getContext('2d');
     const downloadBtn = document.getElementById('downloadBtn');
 
+    const THEMES = {
+      'red-orange': ['#ff4d4d', '#ff8c00'],
+      'green-blue': ['#00cc99', '#3399ff'],
+      'pink-cyan': ['#ff69b4', '#00ffff'],
+      'purple-gold': ['#800080', '#ffd700'],
+      'teal-magenta': ['#00CED1', '#C71585'],
+      'sunset': ['#FF4500', '#9400D3'],
+      'default': ['#4a90e2', '#9013fe']
+    };
+
+    function updatePageTheme(theme) {
+      const colors = THEMES[theme] || THEMES['default'];
+      document.body.style.background = `linear-gradient(135deg, ${colors[0]}, ${colors[1]})`;
+    }
+
     class Node {
       constructor(x, y) {
         this.x = x;
@@ -161,6 +176,10 @@ const neuralCanvas = document.getElementById('neuralCanvas');
       neuralCanvas.height = window.innerHeight;
     });
 
+    document.getElementById('themeSelect').addEventListener('change', (e) => {
+      updatePageTheme(e.target.value);
+    });
+
     function generateCard() {
       const name = document.getElementById('recipientName').value || 'ИИ-Гений';
       const wish = document.getElementById('customWish').value || 'Пусть твой код меняет мир!';
@@ -179,43 +198,10 @@ const neuralCanvas = document.getElementById('neuralCanvas');
       const hobbyMessage = hobbyMessages[hobbies.toLowerCase()] || `Продолжай сиять в ${hobbies}, ${name}!`;
 
       // Set background based on theme
-      let gradient;
-      switch (theme) {
-        case 'red-orange':
-          gradient = cardCtx.createLinearGradient(0, 0, 600, 400);
-          gradient.addColorStop(0, '#ff4d4d');
-          gradient.addColorStop(1, '#ff8c00');
-          break;
-        case 'green-blue':
-          gradient = cardCtx.createLinearGradient(0, 0, 600, 400);
-          gradient.addColorStop(0, '#00cc99');
-          gradient.addColorStop(1, '#3399ff');
-          break;
-        case 'pink-cyan':
-          gradient = cardCtx.createLinearGradient(0, 0, 600, 400);
-          gradient.addColorStop(0, '#ff69b4');
-          gradient.addColorStop(1, '#00ffff');
-          break;
-        case 'purple-gold':
-          gradient = cardCtx.createLinearGradient(0, 0, 600, 400);
-          gradient.addColorStop(0, '#800080');
-          gradient.addColorStop(1, '#ffd700');
-          break;
-        case 'teal-magenta':
-          gradient = cardCtx.createLinearGradient(0, 0, 600, 400);
-          gradient.addColorStop(0, '#00CED1');
-          gradient.addColorStop(1, '#C71585');
-          break;
-        case 'sunset':
-          gradient = cardCtx.createLinearGradient(0, 0, 600, 400);
-          gradient.addColorStop(0, '#FF4500');
-          gradient.addColorStop(1, '#9400D3');
-          break;
-        default:
-          gradient = cardCtx.createLinearGradient(0, 0, 600, 400);
-          gradient.addColorStop(0, '#4a90e2');
-          gradient.addColorStop(1, '#9013fe');
-      }
+      const colors = THEMES[theme] || THEMES['default'];
+      const gradient = cardCtx.createLinearGradient(0, 0, 600, 400);
+      gradient.addColorStop(0, colors[0]);
+      gradient.addColorStop(1, colors[1]);
 
       // Draw card
       cardCtx.fillStyle = gradient;
