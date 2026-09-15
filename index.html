@@ -15,19 +15,19 @@
     <form aria-label="Настройки открытки" onsubmit="generateCard(); return false;">
     <div class="form-group">
       <label for="recipientName" class="sr-only">Имя получателя</label>
-      <input type="text" id="recipientName" placeholder="Имя получателя" maxlength="20" aria-describedby="nameCharCounter">
+      <input type="text" id="recipientName" autocomplete="off" placeholder="Имя получателя" maxlength="20" aria-describedby="nameCharCounter">
       <br>
-      <small id="nameCharCounter" aria-live="polite">0 / 20</small>
+      <small id="nameCharCounter">0 / 20</small>
     </div>
     <div class="form-group">
       <label for="customWish" class="sr-only">Ваше пожелание</label>
-      <input type="text" id="customWish" placeholder="Ваше пожелание" maxlength="100" aria-describedby="wishCharCounter">
+      <input type="text" id="customWish" autocomplete="off" placeholder="Ваше пожелание" maxlength="100" aria-describedby="wishCharCounter">
       <br>
-      <small id="wishCharCounter" aria-live="polite">0 / 100</small>
+      <small id="wishCharCounter">0 / 100</small>
     </div>
     <div class="form-group">
       <label for="hobbies" class="sr-only">Хобби и интересы</label>
-      <input type="text" id="hobbies" list="hobbySuggestions" placeholder="Хобби/интересы (например, программирование, игры)" maxlength="50" aria-describedby="hobbiesCharCounter">
+      <input type="text" id="hobbies" autocomplete="off" list="hobbySuggestions" placeholder="Хобби/интересы (например, программирование, игры)" maxlength="50" aria-describedby="hobbiesCharCounter">
       <datalist id="hobbySuggestions">
         <option value="программирование">
         <option value="игры">
@@ -36,7 +36,7 @@
         <option value="рисование">
       </datalist>
       <br>
-      <small id="hobbiesCharCounter" aria-live="polite">0 / 50</small>
+      <small id="hobbiesCharCounter">0 / 50</small>
     </div>
     <div class="form-group">
       <label for="themeSelect" class="sr-only">Выберите тему</label>
